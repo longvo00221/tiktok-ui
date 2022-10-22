@@ -1,20 +1,17 @@
 import styles from './Header.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react/headless';
-import {faCircleXmark ,faMagnifyingGlass,faSpinner} from '@fortawesome/free-solid-svg-icons'
+import {faCircleXmark ,faMagnifyingGlass,faSignIn,faSpinner} from '@fortawesome/free-solid-svg-icons'
 import classNames from 'classnames/bind';
 import images from '~/assets/images';
 import {useState,useEffect} from 'react'
 import { Wrapper as PopperWrapper } from '~/components/Poppers';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 const cx = classNames.bind(styles)
 function Header() {
     const [searchResult,setSearchResult] = useState([]);
-    useEffect(()=>{
-        setTimeout(()=>{
-            setSearchResult(['long','long1','long2','long3'])
-        },3000) 
-    },[])
+    
     return (
          <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -23,7 +20,7 @@ function Header() {
                 </div>
                 <Tippy
                 interactive
-                 visible={searchResult.length >0}
+                //  visible={searchResult.length >0}
                  render={(attrs)=>(
                    
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
@@ -53,7 +50,8 @@ function Header() {
                    </Tippy>
                 
                 <div className={cx('actions')}>
-
+                    <Button onlyText>Upload</Button>
+                    <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button>
                 </div>
             </div>
          </header> 
