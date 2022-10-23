@@ -12,10 +12,28 @@ import Menu from '~/components/Poppers/Menu';
 const cx = classNames.bind(styles)
 function Header() {
     const [searchResult,setSearchResult] = useState([]);
+    const handleMenuChange = (MenuItem) => {
+        console.log(MenuItem);
+    }
     const MENU_ITEMS= [
         {
             icon: <FontAwesomeIcon icon={faEarthAsia}/>,
-            title:'English'
+            title:'English',
+            children:{
+                title: 'Languages',
+                data:[
+                    {
+                        type:'language',
+                        code: 'en',
+                        title:'english'
+                    },
+                    {
+                        type:'language',
+                        code:'vi',
+                        title:'Tiếng Việt'
+                    }
+                ]
+            }
         },
         {
             icon: <FontAwesomeIcon icon={faCircleQuestion}/>,
@@ -69,7 +87,7 @@ function Header() {
                     <Button onlyText>Upload</Button>
                     <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button>
                     
-                    <Menu items={MENU_ITEMS}> 
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}> 
                     <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical}/>
                         </button>
