@@ -12,6 +12,7 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Poppers/Menu';
 import { faCircleRight, faUser } from '@fortawesome/free-regular-svg-icons';
+import Image from '~/components/Image';
 const cx = classNames.bind(styles)
 function Header() {
     const [searchResult,setSearchResult] = useState([]);
@@ -136,9 +137,9 @@ function Header() {
                                 <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button>
                         </>
                         )}
-                        <Menu items={currentUser? userMenu : MENU_ITEMS} onChange={handleMenuChange}> 
+                        <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}> 
                         {currentUser ? (
-                            <img src='https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tiktok-obj/1662216470860802.jpeg?x-expires=1666699200&x-signature=%2B05DEIjwT93ghc21Wy70%2BuV%2BRYU%3D' className={cx('user-avatar')} alt="nguyenvana"/>
+                            <Image src='https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tiktok-obj/1662216470860802.jpeg?x-expires=1666699200&x-signature=%2B05DEIjwT93ghc21Wy70%2BuV%2BRYU%3D' className={cx('user-avatar')} alt="nguyenvana"/>
                         ):(
                             <button className={cx('more-btn')}>
                                     <FontAwesomeIcon icon={faEllipsisVertical}/>

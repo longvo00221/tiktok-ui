@@ -10,7 +10,7 @@ const defaultFn = () =>{}
 function Menu({children, items=[] , onChange = defaultFn }) {
     const [history,setHistory] = useState([{data: items}]);
     const current = history[history.length -1]
-    
+    // xử lý logic để render ra menu
     const renderItems = () =>{
         return current.data.map((item,index)=>{
             
@@ -26,7 +26,7 @@ function Menu({children, items=[] , onChange = defaultFn }) {
             
         
     }
-
+    // 
     return ( <Tippy
         delay={[0,700]}
          interactive
