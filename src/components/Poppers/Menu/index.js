@@ -7,7 +7,7 @@ import styles from './Menu.module.scss';
 import MenuItem from "./MenuItem";
 const cx = classNames.bind(styles)
 const defaultFn = () =>{}
-function Menu({children, items=[] , onChange = defaultFn }) {
+function Menu({children, items=[],hideOnClick= false , onChange = defaultFn }) {
     const [history,setHistory] = useState([{data: items}]);
     const current = history[history.length -1]
     // xử lý logic để render ra menu
@@ -31,6 +31,7 @@ function Menu({children, items=[] , onChange = defaultFn }) {
         delay={[0,700]}
          interactive
          placement='bottom-end'
+         hideOnClick={hideOnClick}
          render={(attrs)=>(
            
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
