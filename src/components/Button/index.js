@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 import styles from '../Button/Button.module.scss'
@@ -37,5 +38,18 @@ function Button({to,href,primary=false,onlyText=false,outline=false,borderButton
         {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
     </Component>);
 }
-
+Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    onlyText: PropTypes.bool,
+    outline: PropTypes.bool,
+    borderButton: PropTypes.bool,
+    diasbled: PropTypes.bool,
+    rightIcon: PropTypes.node,
+    leftIcon: PropTypes.node,
+    className: PropTypes.string,
+    children: PropTypes.node.isRequired,
+    onClick: PropTypes.func,
+}
 export default Button;

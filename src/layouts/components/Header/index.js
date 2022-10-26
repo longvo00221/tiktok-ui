@@ -2,7 +2,7 @@ import styles from './Header.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import DefaultTippy from '@tippyjs/react';
 import { Link } from 'react-router-dom';
-import routesConfig from '~/config/routes'
+import config from '~/config'
 import 'tippy.js/dist/tippy.css'
 import { faCircleQuestion ,faCoins,faEarthAsia,faEllipsisVertical,faGear,faKeyboard,faSignIn, faVideo} from '@fortawesome/free-solid-svg-icons'
 import classNames from 'classnames/bind';
@@ -36,7 +36,33 @@ function Header() {
                         type:'language',
                         code:'vi',
                         title:'Tiếng Việt'
-                    }
+                    },
+                    {
+                        type:'language',
+                        code: 'kr',
+                        title:'korean'
+                    },
+                    {
+                        type:'language',
+                        code: 'jp',
+                        title:'japanese'
+                    },
+                    {
+                        type:'language',
+                        code: 'cn',
+                        title:'chinese'
+                    },
+                    {
+                        type:'language',
+                        code: 'fr',
+                        title:'frances'
+                    },
+                    {
+                        type:'language',
+                        code: 'en',
+                        title:'english'
+                    },
+                    
                 ]
             }
         },
@@ -78,12 +104,13 @@ function Header() {
             title:'Log Out',
             separate : true,
             
+            
         },
     ]
     return (
          <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo')}>
+                <Link to={config.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="tiktok"/>
                 </Link>
                 {/* popperwrapper là thẻ cha chứa cách thẻ con bên trong bên cần một component chứa thẻ con của nó */}

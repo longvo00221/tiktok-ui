@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from "classnames/bind";
 import styles from '../AccountItem/AccountItem.module.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +16,9 @@ function AccountItem({data}) {
             <span className={cx('username')}>{data.nickname}</span>
         </div>
     </Link> );
+}
+AccountItem.propTypes = {
+    data: PropTypes.object.isRequired
 }
 
 export default AccountItem;
